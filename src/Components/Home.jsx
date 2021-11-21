@@ -85,7 +85,7 @@ const Home = () => {
                                 </div>
                                 <div class="media-body">
                                     <h3 class="heading">Free Shipping</h3>
-                                    <span>On order over $100</span>
+                                    <span>On order over pkr 100</span>
                                 </div>
                             </div>
                         </div>
@@ -211,7 +211,7 @@ const Home = () => {
                                                 <div class="product-body">
                                                     <p class="product-category">Category</p>
                                                     <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                    <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                                                    <h4 class="product-price">pkr980.00 <del class="product-old-price">pkr990.00</del></h4>
                                                     <div class="product-rating">
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
@@ -240,7 +240,7 @@ const Home = () => {
                                                 <div class="product-body">
                                                     <p class="product-category">Category</p>
                                                     <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                    <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                                                    <h4 class="product-price">pkr980.00 <del class="product-old-price">pkr990.00</del></h4>
                                                     <div class="product-rating">
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
@@ -269,7 +269,7 @@ const Home = () => {
                                                 <div class="product-body">
                                                     <p class="product-category">Category</p>
                                                     <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                    <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                                                    <h4 class="product-price">pkr980.00 <del class="product-old-price">pkr990.00</del></h4>
                                                     <div class="product-rating">
                                                     </div>
                                                     <div class="product-btns">
@@ -290,7 +290,7 @@ const Home = () => {
                                                 <div class="product-body">
                                                     <p class="product-category">Category</p>
                                                     <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                    <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                                                    <h4 class="product-price">pkr980.00 <del class="product-old-price">pkr990.00</del></h4>
                                                     <div class="product-rating">
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
@@ -316,7 +316,7 @@ const Home = () => {
                                                 <div class="product-body">
                                                     <p class="product-category">Category</p>
                                                     <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                    <h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+                                                    <h4 class="product-price">pkr980.00 <del class="product-old-price">pkr990.00</del></h4>
                                                     <div class="product-rating">
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>

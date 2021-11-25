@@ -1,5 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './Header';
 
 const About=()=>
 {
@@ -7,7 +8,7 @@ const About=()=>
 
     return (
         <>
-        
+        <Header/>
         <div class="hero-wrap hero-bread" style={{backgroundImage: "url('/assets/img/bg_1.jpg')"}}>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">

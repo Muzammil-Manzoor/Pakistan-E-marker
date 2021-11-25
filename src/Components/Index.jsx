@@ -17,33 +17,57 @@ import Category from "./Category";
 import Buyer_profile from "./Buyer_profile";
 import Seller_profile from "./Seller_profile";
 import Add_product from "./Add_product";
+import Edit_product from "./Edit_product";
+import Protected from "./Procteted";
+import Seller_orders from "./Seller_orders";
+import Edit_buyer from "./Edit_buyer";
+import Edit_Seller_profile from "./Edit_Seller_profile";
 const Index = () => {
 
   
 
     return (
         <>
-            <Header />
             <Switch>
-                <Route path="/home"><Home /></Route>
+                
+                <Route exact path='/home'>
+                    <Protected component={Home} />
+                </Route>
                 <Route path="/buyer_login"><Buyer_Login /></Route>
                 <Route path="/buyer_register"><Buyer_Register /></Route>
                 <Route path="/seller_login"><Seller_login /></Route>
                 <Route path="/seller_register"><Seller_register /></Route>
                 <Route path="/buyer_profile"><Buyer_profile /></Route>
                 <Route path="/seller_profile"><Seller_profile /></Route>
-                <Route path="/items"><Items /></Route>
-                <Route path="/cart"><Cart /></Route>
+                
+                <Route exact path='/items'>
+                    <Protected component={Items} />
+                </Route>
+                <Route exact path='/cart'>
+                    <Protected component={Cart} />
+                </Route>
+
                 <Route path="/contact"><Contact /></Route>
                 <Route path="/about"><About /></Route>
 
 
                 <Route path="/add_product"><Add_product /></Route>
 
-                <Route path="/checkout"><Checkout /></Route>
-                <Route path="/category"><Category /></Route>
+                <Route exact path='/checkout'>
+                    <Protected component={Checkout} />
+                </Route>
+                <Route exact path='/category'>
+                    <Protected component={Category} />
+                </Route>                
 
                 <Route path="/testing"><Testing /></Route>
+                <Route path="/edit_product"><Edit_product /></Route>
+
+                <Route path="/seller_orders"><Seller_orders/></Route>
+                <Route path="/edit_buyer"><Edit_buyer/></Route>
+                <Route path="/edit_seller"><Edit_Seller_profile/></Route>
+
+
 
                 <Redirect to='/home' />
 

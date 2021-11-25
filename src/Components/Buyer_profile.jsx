@@ -1,58 +1,142 @@
-import React from 'react';
+import React ,{useState,useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './Header';
+import { BrowserRouter as Router, Switch, Route, Link, Redirect,useHistory } from "react-router-dom";
+import axios from "axios";
+
 
 const Buyer_profile=()=>
 {
+    const history=useHistory();
+
+    const edit=()=>{
+        history.push('/edit_buyer')
+    }
 	
 
+    const [users,setUsers]=useState([]);
+    const [orders,setOrders]=useState([]);
+
+
+    const deletee=(id)=>{      
+        axios.delete('https://e-market-rest-api.herokuapp.com/product/?id='+id)
+          .then(() => this.setState({ status: 'Delete successful' }));
+  
+      }
+  
+    const sid=localStorage.getItem('buyer_id')
+    async function getData(){
+      
+        const res=await axios.get('https://e-market-rest-api.herokuapp.com/buyer/profile?id='+sid)
+        setUsers(res.data.data);
+
+
+        const res1=await axios.get('https://e-market-rest-api.herokuapp.com/buyer/orders?id=1')
+        setOrders(res1.data.data);
+        console.warn('**********check orders***********')
+        console.warn(res1)
+       
+    
+    }
+
+    useEffect(()=>{
+      
+
+        getData();
+    },[]);
+    
     return (
         <>
-        
-		<section class="ftco-section">
-    	<div class="container">
-				<div class="row justify-content-center mb-3 pb-3">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-          	<span class="subheading">Featured Products</span>
-            <h2 class="mb-4">Our Products</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-          </div>
-        </div>   		
-    	</div>
-    	<div class="container">
-    		<div class="row">
-    			<div class="col-md-6 col-lg-3 ftco-animate">
-    				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="https://cdn.pixabay.com/photo/2018/02/16/16/07/youtube-3157978_960_720.jpg" alt="Colorlib Template"/>
-    						<span class="status">30%</span>
-    						<div class="overlay"></div>
-    					</a>
-    					<div class="text py-3 pb-4 px-3 text-center">
-    						<h3><a href="#">Bell Pepper</a></h3>
-    						<div class="d-flex">
-    							<div class="pricing">
-		    						<p class="price"><span class="mr-2 price-dc">$120.00</span><span class="price-sale">$80.00</span></p>
-		    					</div>
-	    					</div>
-	    					<div class="bottom-area d-flex px-3">
-	    						<div class="m-auto d-flex">
-	    							<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-	    								<span><i class="ion-ios-menu"></i></span>
-	    							</a>
-	    							<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-	    								<span><i class="ion-ios-cart"></i></span>
-	    							</a>
-	    							<a href="#" class="heart d-flex justify-content-center align-items-center ">
-	    								<span><i class="ion-ios-heart"></i></span>
-	    							</a>
-    							</div>
-    						</div>
-    					</div>
-    				</div>
-    			</div>
-    			
-    		</div>
-    	</div>
-    </section>
+        <Header/>
+<div class="container emp-profile">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img style={{width:"200px" ,height:"200px"}}  src={users.image_path} alt=""/>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5>
+                                        {users.name}
+                                    </h5>
+                                    <h6>
+                                        {users.email}
+                                    </h6>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                </li>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                    <br/>
+                    <button type="button" onClick={edit} class="btn btn-warning">Edit Profile</button>
+                    &nbsp; &nbsp;
+                    &nbsp; &nbsp;
+                    <button type="button" onClick={deletee} class="btn btn-danger">Delete Profile</button>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+                           
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        
+                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>User Id</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{sid}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Name</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{users.name}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{users.email}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Phone</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{users.phone}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Address</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{users.address}</p>
+                                            </div>
+                                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>
+		<br/><br/><br/><br/><br/><br/><br/>
+
+
         </>
     )
 }

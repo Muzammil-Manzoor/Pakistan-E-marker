@@ -5,11 +5,11 @@ import { Link, useHistory } from 'react-router-dom';
 
 const Header = () => {
     const history = useHistory();
-    const user = localStorage.getItem('name');
+    const user = localStorage.getItem('user');
 
     const Logout = () => {
         localStorage.clear()
-        history.go('./login')
+        history.push('./buyer_login')
     }
 
 
@@ -23,7 +23,7 @@ const Header = () => {
                                 <div className="row align-items-center">
                                     <div className="col-xl-1 col-lg-1 col-md-1 col-sm-2">
                                         <div >
-                                            <Link to="/home"><img  src="/assets/img/logo.jpeg" alt=""/></Link>
+                                            <a href="/home"><img  src="/assets/img/logo.jpeg" alt=""/></a>
                                         </div>
                                     </div>
                                     <div className="col-xl-6 col-lg-8 col-md-7 col-sm-5">
@@ -81,8 +81,9 @@ const Header = () => {
                                                 </div>
                                             </li>
                                             {
-                                                localStorage.getItem('email') ?
-                                                    <li style={{ fontSize: '18px' }} className="d-none d-lg-block"> <Link style={{ color: "#E7AB3C" }} onClick={Logout}><i className="fa fa-sign-out"></i><b> Logout {user}</b></Link></li>
+                                                localStorage.getItem('user') ?
+                                                
+                                                    <li style={{ fontSize: '18px' }} className="d-none d-lg-block"> <a style={{ color: "#E7AB3C" }} onClick={Logout}><i className="fa fa-sign-out"></i><b> Logout {user}</b></a></li>
                                                     :
 
                                                     <div class="dropdown" style={{ float: "right" }}>

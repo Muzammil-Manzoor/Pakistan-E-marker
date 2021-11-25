@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 const Buyer_Login=()=>
 {
+
     const history = useHistory();
 
 	const [email, setEmail] = useState("");
@@ -29,6 +30,9 @@ const Buyer_Login=()=>
             console.warn("************************Successful****************")
             localStorage.setItem("email", email);
             localStorage.setItem("buyer", "buyer");
+            localStorage.setItem('user',content.user_details.name)
+            localStorage.setItem("buyer_id", content.user_details.id);
+
 
 
 
@@ -43,6 +47,7 @@ const Buyer_Login=()=>
     }
     return (
         <>
+        <Header/>
         <div className="slider-area ">
      
         <div className="single-slider slider-height2 d-flex align-items-center" data-background="assets/img/hero/category.jpg">

@@ -5,9 +5,9 @@ const Protected=(props)=>
     const history=useHistory();
     let Cmp=props.component
     useEffect(()=>{
-        if(!localStorage.getItem('email'))
+        if(localStorage.getItem('seller_id'))
         {
-            history.push('./login')
+            history.push('./buyer_login')
         }
     })
     

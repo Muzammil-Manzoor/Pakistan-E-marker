@@ -1,12 +1,13 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './Header';
 
 const Contact=()=>
 {
 	
 
     return (
-        <>
+        <><Header/>
         
         <section class="ftco-section contact-section bg-light">
       <div class="container">

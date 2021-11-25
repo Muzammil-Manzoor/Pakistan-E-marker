@@ -23,15 +23,20 @@ const Seller_login=()=>
             body: JSON.stringify(article)
         });
         const content = await response.json();
+        console.warn(response)
+        console.warn(content.user_details.id)
 
         
         if (response.status == 200) {
             console.warn("************************Successful****************")
             localStorage.setItem("email", email);
+            localStorage.setItem('user',content.user_details.name)
             localStorage.setItem("seller", 'seller');
+            localStorage.setItem("seller_id", content.user_details.id);
 
 
-            history.push('/home');
+
+            history.push('/seller_profile');
         }
         else {
             setErr("Eror login again")
@@ -42,6 +47,7 @@ const Seller_login=()=>
     }
     return (
         <>
+        <Header/>
         <div className="slider-area ">
      
         <div className="single-slider slider-height2 d-flex align-items-center" data-background="assets/img/hero/category.jpg">

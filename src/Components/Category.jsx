@@ -1,5 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './Header';
 
 const Category=()=>
 {
@@ -7,7 +8,7 @@ const Category=()=>
 
     return (
         <>
-        
+        <Header/>
         <section class="ftco-section ftco-category ftco-no-pt">
 			<div class="container">
 				<div class="row">

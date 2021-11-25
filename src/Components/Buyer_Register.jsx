@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import Header from './Header';
 
 
 const Buyer_Register=()=>
@@ -27,13 +29,14 @@ const Buyer_Register=()=>
         reset,
         trigger,
     } = useForm();
-    const item = { name: name, email:email,password: password, phone:phone,address:address,image_path:image_path,city:city,gender:gender };
 
     const onSubmit = (data) => {
         setName(data.name)
         setPassword(data.password)
         setEmail(data.email)
         console.log(data.email)
+
+       
        
 
         Submit();
@@ -41,30 +44,56 @@ const Buyer_Register=()=>
     };
   
     const Submit = async (e) => {
-    console.log('***************************************************')
-    console.log(item)
-        const response = await fetch('https://e-market-rest-api.herokuapp.com/buyer/register/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(item)
-        });
-        console.warn('****************' + response.status)
-        if (response.status == 200) {
-            history.push('/buyer_login')
-        }
-        else {
-            console.warn("Eror login again")
-            const content = await response.json();
-            alert("Register Again")
-            history.push('/buyer_register')
+        const dataArray = new FormData();
+        
+        dataArray.append("name", name);
+        dataArray.append("email", email);
+        dataArray.append("password", password);
+        dataArray.append("gender", gender);
+        dataArray.append("phone", phone);
+        dataArray.append("image_path", image_path);
+        dataArray.append("address", address);
+        dataArray.append("city", city);
 
-        }
+        
+        axios.post("https://e-market-rest-api.herokuapp.com/buyer/register/", dataArray, {
+          headers: {
+            "Content-Type": "multipart/form-data"
+          }
+        })
+        .then((response) => {
+            if (response.status == 200) {
+                    history.push('/buyer_login')
+                 }
+        })
+        .catch((error) => {
+            alert("Register Again")
+           history.push('/buyer_register')
+        });
+    
+        // const response = await fetch('https://e-market-rest-api.herokuapp.com/buyer/register/', {
+        //     method: 'POST',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify(item)
+        // });
+        // console.warn('****************' + response.status)
+        // if (response.status == 200) {
+        //     history.push('/buyer_login')
+        // }
+        // else {
+        //     console.warn("Eror login again")
+        //     const content = await response.json();
+        //     alert("Register Again")
+        //     history.push('/buyer_register')
+
+        // }
         reset();
     }
 
 
     return (
         <>
+        <Header/>
     <div className="slider-area ">
      
      <div className="single-slider slider-height2 d-flex align-items-center" data-background="assets/img/hero/category.jpg">
@@ -173,7 +202,7 @@ const Buyer_Register=()=>
 
                                     </div>
                                     <div  className="col-md-12 form-group p_star">
-                                    <input className='form-control' type="text" placeholder="Image" value={image_path} onChange={(e) => setImage_path(e.target.value)}/>
+                                    <input className='form-control' type="file" placeholder="Image"  onChange={(e) => setImage_path(e.target.files[0])}/>
 
                                     </div>
 

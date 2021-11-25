@@ -8,6 +8,7 @@ const Checkout=()=>
 
     return (
         <>
+		<Header/>
       <div class="hero-wrap hero-bread" style={{backgroundImage:" url('/assets/img/bg_1.jpg')"}}>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">

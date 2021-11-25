@@ -20,7 +20,7 @@ const Home = () => {
 
     return (
         <>
-
+<Header/>
 
             <section id="home-section" className="hero">
 
@@ -50,7 +50,7 @@ const Home = () => {
                                 <div className="col-md-12 ftco-animate text-center">
                                     <h1 className="mb-2">We serve Fresh Vegestables &amp; Fruits</h1>
                                     <h2 className="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
-                                    <p><a href="#" className="btn btn-primary">View Details</a></p>
+                                    <p><a href="/items" className="btn btn-primary">View Details</a></p>
                                 </div>
 
 
@@ -66,7 +66,7 @@ const Home = () => {
                                 <div className="col-sm-12 ftco-animate text-center">
                                     <h1 className="mb-2">100% Fresh &amp; Organic Foods</h1>
                                     <h2 className="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
-                                    <p><a href="#" className="btn btn-primary">View Details</a></p>
+                                    <p><a href="/items" className="btn btn-primary">View Details</a></p>
                                 </div>
 
                             </div>
@@ -138,7 +138,7 @@ const Home = () => {
                                 </div>
                                 <div class="shop-body">
                                     <h3>Laptop<br />Collection</h3>
-                                    <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="/items" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -150,7 +150,7 @@ const Home = () => {
                                 </div>
                                 <div class="shop-body">
                                     <h3>Accessories<br />Collection</h3>
-                                    <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="/items" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -163,7 +163,7 @@ const Home = () => {
                                 </div>
                                 <div class="shop-body">
                                     <h3>Fruits and Vegetables<br />Collection</h3>
-                                    <a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="/items" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>

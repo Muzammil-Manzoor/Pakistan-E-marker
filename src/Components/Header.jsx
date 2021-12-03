@@ -42,7 +42,7 @@ const Header = () => {
                                                     <li><Link to="#">Pages</Link>
                                                         <ul className="submenu">
                                                             <li><Link to="/about">About</Link></li>
-                                                            <li><Link to="/cart">Cart</Link></li>
+                                                            <li><Link to="/cart">Orders</Link></li>
                                                             <li><Link to="/checkout">Product Checkout</Link></li>
                                                             {
                                                                 localStorage.getItem('buyer') ?

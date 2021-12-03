@@ -9,7 +9,27 @@ const Seller_register=()=>
 {
     
     const history = useHistory();
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        reset,
+        trigger,
+    } = useForm();
+    
+    const onSubmit = (data) => {
+        setName(data.name)
+        setPassword(data.password)
+        setEmail(data.email)
+        console.log(data.email)
+        
 
+       
+
+        Submit();
+        reset();
+    };
+  
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -25,26 +45,8 @@ const Seller_register=()=>
 
 	
 	
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-        reset,
-        trigger,
-    } = useForm();
+   
 
-    const onSubmit = (data) => {
-        setName(data.name)
-        setPassword(data.password)
-        setEmail(data.email)
-        console.log(data.email)
-        
-
-       
-
-        Submit();
-        reset();
-    };
   
     const Submit = async (e) => {
 
@@ -137,8 +139,9 @@ const Seller_register=()=>
                              Please Register in now</h3>
                          <form  onSubmit={handleSubmit(onSubmit)} className="row contact_form" action="#" method="post" novalidate="novalidate">
                                     <div  className="col-md-12 form-group p_star">
+                                    Name
                                         <input
-                                            type="text" placeholder="Name" 
+                                            type="text" placeholder="Atleast 5 characters" 
                                             className={`form-control ${errors.name && "invalid"}`}
                                             {...register("name", { required: "Name is Required" })}
                                             onKeyUp={() => {
@@ -151,7 +154,8 @@ const Seller_register=()=>
 
                                     <div  className="col-md-12 form-group p_star">
                                         {/* <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="form-control" id="inputEmail4" required /> */}
-                                        <input placeholder="Email*" 
+                                        Email
+                                        <input placeholder="Valid email format" 
                                             type="text"
                                             className={`form-control ${errors.email && "invalid"}`}
                                             {...register("email", {
@@ -173,7 +177,8 @@ const Seller_register=()=>
                                     </div>
 
                                     <div className="col-md-12 form-group p_star">
-                                        <input   placeholder="Password"
+                                    Password
+                                        <input   placeholder="Atleast 8 characters"
                                             type="password" 
                                             className={`form-control ${errors.password && "invalid"}`}
                                             {...register("password", {
@@ -193,37 +198,45 @@ const Seller_register=()=>
                                     </div>
 
                                     <div  className="col-md-12 form-group p_star">
-                                            <input className='form-control' type="text" placeholder="Phone" value={phone} onChange={(e) => setPhone(e.target.value)}/>
+                                    Phone
+                                            <input className='form-control' type="text" placeholder="Atleast 11 characters" value={phone} onChange={(e) => setPhone(e.target.value)}/>
                                     </div>
 
                                     <div  className="col-md-12 form-group p_star">
-                                            <input className='form-control' type="text" placeholder="Shop name" value={shop_name} onChange={(e) => setshop_name(e.target.value)}/>
+                                    Shop Name
+                                            <input className='form-control' type="text" placeholder="Atleast 5 characters" value={shop_name} onChange={(e) => setshop_name(e.target.value)}/>
                                     </div>
 
                                     <div  className="col-md-12 form-group p_star">
-                                            <input className='form-control' type="text" placeholder="Shop type" value={shop_type} onChange={(e) => setshop_type(e.target.value)}/>
+                                    Shop Type
+                                            <input className='form-control' type="text" placeholder="Atleast 5 characters" value={shop_type} onChange={(e) => setshop_type(e.target.value)}/>
                                     </div>
 
                                     <div  className="col-md-12 form-group p_star">
-                                            <input className='form-control' type="text" placeholder="Shop details" value={shop_detail} onChange={(e) => setshop_detail(e.target.value)}/>
+                                    Shop Details
+                                            <input className='form-control' type="text" placeholder="" value={shop_detail} onChange={(e) => setshop_detail(e.target.value)}/>
                                     </div>
 
 
                                     <div  className="col-md-12 form-group p_star">
-                                    <input className='form-control' type="text" placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)}/>
+                                    Address
+                                    <input className='form-control' type="text" placeholder="" value={address} onChange={(e) => setAddress(e.target.value)}/>
 
                                     </div>
 
                                     <div  className="col-md-12 form-group p_star">
-                                    <input className='form-control' type="text" placeholder="city" value={city} onChange={(e) => setCity(e.target.value)}/>
+                                    City
+                                    <input className='form-control' type="text" placeholder="" value={city} onChange={(e) => setCity(e.target.value)}/>
 
                                     </div>
                                     <div  className="col-md-12 form-group p_star">
-                                    <input className='form-control' type="text" placeholder="Gender" value={gender} onChange={(e) => setGender(e.target.value)}/>
+                                    Gender
+                                    <input className='form-control' type="text" placeholder="" value={gender} onChange={(e) => setGender(e.target.value)}/>
 
                                     </div>
                                     <div  className="col-md-12 form-group p_star">
-                                    <input className='form-control' type="file" placeholder="Image"  onChange={(e) => setImage_path(e.target.files[0])}/>
+                                    Image
+                                    <input className='form-control' type="file" placeholder=""  onChange={(e) => setImage_path(e.target.files[0])}/>
 
                                     </div>
 

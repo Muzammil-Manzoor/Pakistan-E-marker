@@ -30,7 +30,8 @@ const Items=()=>
       
 
         getData();
-    },[]);  
+    },[]); 
+     
     console.warn(users)
 
     return (

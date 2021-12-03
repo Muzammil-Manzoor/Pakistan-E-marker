@@ -71,22 +71,6 @@ const Buyer_Register=()=>
            history.push('/buyer_register')
         });
     
-        // const response = await fetch('https://e-market-rest-api.herokuapp.com/buyer/register/', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(item)
-        // });
-        // console.warn('****************' + response.status)
-        // if (response.status == 200) {
-        //     history.push('/buyer_login')
-        // }
-        // else {
-        //     console.warn("Eror login again")
-        //     const content = await response.json();
-        //     alert("Register Again")
-        //     history.push('/buyer_register')
-
-        // }
         reset();
     }
 
@@ -126,10 +110,11 @@ const Buyer_Register=()=>
                      <div className="login_part_form_iner">
                          <h3>Welcome Back ! <br/>
                              Please Register now</h3>
-                         <form  onSubmit={handleSubmit(onSubmit)} className="row contact_form" action="#" method="post" novalidate="novalidate">
+                         <form  onSubmit={handleSubmit(onSubmit)} className="row contact_form"  method="post" novalidate="novalidate">
                                     <div  className="col-md-12 form-group p_star">
+                                    Name
                                         <input
-                                            type="text" placeholder="Name" 
+                                            type="text" placeholder="Atleast 5 characters" 
                                             className={`form-control ${errors.name && "invalid"}`}
                                             {...register("name", { required: "Name is Required" })}
                                             onKeyUp={() => {
@@ -142,7 +127,8 @@ const Buyer_Register=()=>
 
                                     <div  className="col-md-12 form-group p_star">
                                         {/* <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="form-control" id="inputEmail4" required /> */}
-                                        <input placeholder="Email*" 
+                                        Email
+                                        <input placeholder="Email in valid formate" 
                                             type="text"
                                             className={`form-control ${errors.email && "invalid"}`}
                                             {...register("email", {
@@ -164,7 +150,8 @@ const Buyer_Register=()=>
                                     </div>
 
                                     <div className="col-md-12 form-group p_star">
-                                        <input   placeholder="Password"
+                                    Password
+                                        <input   placeholder="Atleast 8 characters"
                                             type="password" 
                                             className={`form-control ${errors.password && "invalid"}`}
                                             {...register("password", {
@@ -184,25 +171,30 @@ const Buyer_Register=()=>
                                     </div>
 
                                     <div  className="col-md-12 form-group p_star">
-                                            <input className='form-control' type="text" placeholder="Phone" value={phone} onChange={(e) => setPhone(e.target.value)}/>
+                                    Phone
+                                            <input className='form-control' type="text" placeholder="Atleast 11 characters" value={phone} onChange={(e) => setPhone(e.target.value)}/>
                                     </div>
 
 
                                     <div  className="col-md-12 form-group p_star">
-                                    <input className='form-control' type="text" placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)}/>
+                                    Address
+                                    <input className='form-control' type="text" placeholder="" value={address} onChange={(e) => setAddress(e.target.value)}/>
 
                                     </div>
 
                                     <div  className="col-md-12 form-group p_star">
-                                    <input className='form-control' type="text" placeholder="city" value={city} onChange={(e) => setCity(e.target.value)}/>
+                                    City
+                                    <input className='form-control' type="text" placeholder="" value={city} onChange={(e) => setCity(e.target.value)}/>
 
                                     </div>
                                     <div  className="col-md-12 form-group p_star">
-                                    <input className='form-control' type="text" placeholder="Gender" value={gender} onChange={(e) => setGender(e.target.value)}/>
+                                    Gender
+                                    <input className='form-control' type="text" placeholder="" value={gender} onChange={(e) => setGender(e.target.value)}/>
 
                                     </div>
                                     <div  className="col-md-12 form-group p_star">
-                                    <input className='form-control' type="file" placeholder="Image"  onChange={(e) => setImage_path(e.target.files[0])}/>
+                                    Image
+                                    <input className='form-control' type="file" placeholder=""  onChange={(e) => setImage_path(e.target.files[0])}/>
 
                                     </div>
 
